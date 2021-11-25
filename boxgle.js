@@ -55,13 +55,13 @@ class Enemy {
 		const padding = this.width;
 		if (this.x + padding >= canvas.width || this.x <= 0){
 			const bounce = new Audio("audio/bounce.wav");
-			bounce.cloneNode().play();
+			bounce.play();
 			this.xDir *= -1;
 			quake(200, 8);
 		}
 		if (this.y + padding >= canvas.height || this.y <= 0){
 			const bounce = new Audio("audio/bounce.wav");
-			bounce.cloneNode().play();
+			bounce.play();
 			this.yDir *= -1;
 			quake(200, 8);
 		}
@@ -210,7 +210,7 @@ window.onblur = function(){
 
 function start(){
 	const startFx = new Audio("audio/spawn.mp3");
-	startFx.cloneNode().play();
+	startFx.play();
 	player.reset();
 	enemies = [new Enemy(300, 100, 3, 3), new Enemy(15, 200, -3, 3), new Enemy(35, 10, -3, -3)];
 	gameStart = true;
@@ -274,7 +274,7 @@ function step(){
 					if (player.y < enemies[i].y + enemies[i].height){
 						if (player.y + player.height > enemies[i].y){
 							const deathFx = new Audio("audio/death.wav");
-							deathFx.cloneNode().play();
+							deathFx.play();
 							death();
 						}
 					}
@@ -284,12 +284,12 @@ function step(){
 
 		if (player.x + padding >= canvas.width || player.x <= 0){
 			const deathFx = new Audio("audio/death.wav");
-			deathFx.cloneNode().play();
+			deathFx.play();
 			death();
 		}
 		if (player.y + padding >= canvas.height || player.y <= 0){
 			const deathFx = new Audio("audio/death.wav");
-			deathFx.cloneNode().play();
+			deathFx.play();
 			death();
 		}
 
@@ -312,7 +312,7 @@ function step(){
 	ctx.fillStyle = `rgba(255, 255, 255, ${titleScreenOp * 10})`;
 	ctx.font = "70px monospace";
 	ctx.textAlign = "center";
-	ctx.fillText("B", canvas.width / 2, 100);
+	ctx.fillText("Boxgle", canvas.width / 2, 100);
 
 	ctx.font = "30px monospace";
 	ctx.fillText(subheader, canvas.width / 2, 150);
