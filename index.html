@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Boxgle</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+		<link href = "style.css" rel = "stylesheet" type = "text/css">
+	</head>
+	<body>
+		<div id = "website-widget">
+			<img id = "pfp" src = "https://dkeree.repl.co/pfp.png">
+		</div>
+		<canvas id = "game"></canvas>
+		<script src = "boxgle.js"></script>
+		<script>
+			const website = document.getElementById("website-widget");
+			website.addEventListener("click", () => {
+				window.open("https://dkeree.repl.co/", "_blank");
+			});
+		</script>
+	</body>
+</html>
