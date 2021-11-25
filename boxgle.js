@@ -312,7 +312,7 @@ function step(){
 	ctx.fillStyle = `rgba(255, 255, 255, ${titleScreenOp * 10})`;
 	ctx.font = "70px monospace";
 	ctx.textAlign = "center";
-	ctx.fillText("Boxgle", canvas.width / 2, 100);
+	ctx.fillText("B", canvas.width / 2, 100);
 
 	ctx.font = "30px monospace";
 	ctx.fillText(subheader, canvas.width / 2, 150);
