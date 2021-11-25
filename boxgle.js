@@ -16,6 +16,10 @@ const shake = {
 	magnitude: 0
 };
 
+const startFx = new Audio("audio/spawn.mp3");
+const bounce = new Audio("audio/bounce");
+const deathFx = new Audio("audio/death.wav");
+
 function getMousePos(event){
 	const rect = canvas.getBoundingClientRect();
 	return {
@@ -54,14 +58,14 @@ class Enemy {
 	update() {
 		const padding = this.width;
 		if (this.x + padding >= canvas.width || this.x <= 0){
-			const bounce = new Audio("audio/bounce.wav");
 			bounce.play();
+			bounce.currentTime = 0;
 			this.xDir *= -1;
 			quake(200, 8);
 		}
 		if (this.y + padding >= canvas.height || this.y <= 0){
-			const bounce = new Audio("audio/bounce.wav");
 			bounce.play();
+			bounce.currentTime = 0;
 			this.yDir *= -1;
 			quake(200, 8);
 		}
@@ -209,8 +213,8 @@ window.onblur = function(){
 };
 
 function start(){
-	const startFx = new Audio("audio/spawn.mp3");
 	startFx.play();
+	startFx.currentTime = 0;
 	player.reset();
 	enemies = [new Enemy(300, 100, 3, 3), new Enemy(15, 200, -3, 3), new Enemy(35, 10, -3, -3)];
 	gameStart = true;
@@ -273,8 +277,8 @@ function step(){
 				if (player.x + player.width > enemies[i].x){
 					if (player.y < enemies[i].y + enemies[i].height){
 						if (player.y + player.height > enemies[i].y){
-							const deathFx = new Audio("audio/death.wav");
 							deathFx.play();
+							deathFx.currentTime = 0;
 							death();
 						}
 					}
@@ -283,13 +287,13 @@ function step(){
 		}
 
 		if (player.x + padding >= canvas.width || player.x <= 0){
-			const deathFx = new Audio("audio/death.wav");
 			deathFx.play();
+			deathFx.currentTime = 0;
 			death();
 		}
 		if (player.y + padding >= canvas.height || player.y <= 0){
-			const deathFx = new Audio("audio/death.wav");
 			deathFx.play();
+			deathFx.currentTime = 0;
 			death();
 		}
 
