@@ -17,7 +17,7 @@ const shake = {
 };
 
 const startFx = new Audio("audio/spawn.mp3");
-const bounce = new Audio("audio/bounce");
+const bounce = new Audio("audio/bounce.wav");
 const deathFx = new Audio("audio/death.wav");
 
 function getMousePos(event){
