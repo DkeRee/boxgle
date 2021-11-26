@@ -5,6 +5,7 @@ const fpsInterval = 1000 / 60;
 var then = Date.now();
 
 var renderParticles;
+var firstTry;
 var gameStart = false;
 var playerDeath = false;
 var titleScreenOp = 0.2;
@@ -202,6 +203,10 @@ canvas.addEventListener("click", e => {
 
 window.addEventListener("keydown", e => {
 	player.keys[e.which] = true;
+	if (e.which == 32){
+		if (!gameStart) start();
+		e.preventDefault();
+	}
 });
 
 window.addEventListener("keyup", e => {
@@ -221,12 +226,16 @@ function start(){
 }
 
 function death(){
+	if (firstTry == undefined){
+		firstTry = true;
+	} else {
+		firstTry = false;
+	}
 	gameStart = false;
 	ctx.restore();
 	playerDeath = true;
 	renderParticles = player.death();
 	quake(500, 20);
-
 	subheader = `Final Score: ${player.score}`;
 }
 
@@ -310,6 +319,15 @@ function step(){
 	ctx.shadowColor = "#F04747";
 	ctx.fillStyle = `rgba(0, 0, 0, ${titleScreenOp})`;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	if (firstTry){
+		ctx.shadowBlur = 10;
+		ctx.shadowColor = "#F04747";
+		ctx.fillStyle = `rgba(255, 255, 255, ${titleScreenOp * 10})`;
+		ctx.font = "10px monospace";
+		ctx.textAlign = "left";
+		ctx.fillText("Protip: Press space to quickly restart!", 10, 20);
+	}
 
 	ctx.shadowBlur = 10;
 	ctx.shadowColor = "#F04747";
