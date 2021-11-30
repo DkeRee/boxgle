@@ -208,6 +208,7 @@
 			if (!gameStart) start();
 			e.preventDefault();
 		}
+		if (e.which == 38 || e.which == 40) e.preventDefault();
 	});
 
 	window.addEventListener("keyup", e => {
