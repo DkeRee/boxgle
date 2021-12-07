@@ -6,7 +6,8 @@ body {
 #game {
 	width: 800px;
 	height: 600px;
-	border: 2px solid tranpsarent;
+	border: 0px solid transparent;
+	box-shadow: 0px 0px 25px #F04747;
 	margin-top: 7%;
 }
 
