@@ -13,6 +13,7 @@ body {
 	border: 0px solid transparent;
 	box-shadow: 0px 0px 25px #F04747;
 	margin-top: 7%;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 #pfp {
@@ -35,6 +36,7 @@ body {
 	-moz-transition: background-color 0.25s ease-out;
 	-o-transition: background-color 0.25s ease-out;
 	transition: background-color 0.25s ease-out;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 #website-widget:hover {
