@@ -92,6 +92,8 @@ body {
 	-moz-transition: background-color 0.25s ease-out;
 	-o-transition: background-color 0.25s ease-out;
 	transition: background-color 0.25s ease-out;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    vertical-align: middle;
 }
 
 .control:hover, .control:active {
@@ -105,7 +107,6 @@ body {
 	font-size: 70px;
 	border-top: 50%;
 	user-select: none;
-	display: inline-block;
 }
 
 ::-webkit-scrollbar {
