@@ -22,6 +22,19 @@
 	const bounce = new Audio("audio/bounce.wav");
 	const deathFx = new Audio("audio/death.wav");
 
+	const device = (function(){
+		const ua = navigator.userAgent;
+
+		if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua) || /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) return "mobile";
+		return "computer";
+	})();
+	const mPad = document.getElementById("mobile-controls");
+
+	if (device == "mobile"){
+		canvas.style.marginTop = "15%";
+		mPad.style.display = "grid";
+	}
+
 	function getMousePos(event){
 		const rect = canvas.getBoundingClientRect();
 		return {
@@ -200,6 +213,43 @@
 	canvas.addEventListener("click", e => {
 		const mousePos = getMousePos(e);
 		if (isInside(mousePos, play) && !gameStart) start();
+	});
+
+	const mUp = document.getElementById("top-button");
+	const mDown = document.getElementById("bottom-button");
+	const mLeft = document.getElementById("left-button");
+	const mRight = document.getElementById("right-button");
+
+	mUp.addEventListener("touchstart", () => {
+		player.keys[87] = true;
+	});
+
+	mUp.addEventListener("touchend", () => {
+		delete player.keys[87];
+	});
+
+	mDown.addEventListener("touchstart", () => {
+		player.keys[83] = true;
+	});
+
+	mDown.addEventListener("touchend", () => {
+		delete player.keys[83];
+	});
+
+	mLeft.addEventListener("touchstart", () => {
+		player.keys[65] = true;
+	});
+
+	mLeft.addEventListener("touchend", () => {
+		delete player.keys[65];
+	});
+
+	mRight.addEventListener("touchstart", () => {
+		player.keys[68] = true;
+	});
+
+	mRight.addEventListener("touchend", () => {
+		delete player.keys[68];
 	});
 
 	window.addEventListener("keydown", e => {
