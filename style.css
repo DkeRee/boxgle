@@ -102,8 +102,8 @@ body {
 
 .control-display {
 	color: white;
-	margin: 25%;
-	font-size: 70px;
+	margin: 20%;
+	font-size: 4em;
 	border-top: 50%;
 	user-select: none;
 }
