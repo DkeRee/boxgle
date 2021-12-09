@@ -102,8 +102,7 @@ body {
 
 .control-display {
 	color: white;
-	margin: 0;
-	margin-top: 25%;
+	margin: 25%;
 	font-size: 70px;
 	border-top: 50%;
 	user-select: none;
