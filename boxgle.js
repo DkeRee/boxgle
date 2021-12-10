@@ -282,6 +282,8 @@
 	}
 
 	function death(){
+		navigator.vibrate(200);
+
 		if (firstTry == undefined){
 			firstTry = true;
 		} else {
