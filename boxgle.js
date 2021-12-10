@@ -222,6 +222,7 @@
 
 	mUp.addEventListener("touchstart", () => {
 		player.keys[87] = true;
+		navigator.vibrate(50);
 	});
 
 	mUp.addEventListener("touchend", () => {
@@ -230,6 +231,7 @@
 
 	mDown.addEventListener("touchstart", () => {
 		player.keys[83] = true;
+		navigator.vibrate(50);
 	});
 
 	mDown.addEventListener("touchend", () => {
@@ -238,6 +240,7 @@
 
 	mLeft.addEventListener("touchstart", () => {
 		player.keys[65] = true;
+		navigator.vibrate(50);
 	});
 
 	mLeft.addEventListener("touchend", () => {
@@ -246,6 +249,7 @@
 
 	mRight.addEventListener("touchstart", () => {
 		player.keys[68] = true;
+		navigator.vibrate(50);
 	});
 
 	mRight.addEventListener("touchend", () => {
