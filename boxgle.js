@@ -330,39 +330,43 @@
 			enemies[i].render();
 		}
 		if (gameStart) player.render();
-		if (playerDeath){
-			const renderer = renderParticles();
-			if (renderer() == 0) playerDeath = false;
-		}
 
 		if (shake) ctx.restore();
 
-		if (elapsed > fpsInterval && gameStart){
+		if (elapsed > fpsInterval){
 			then = now - (elapsed % fpsInterval);
 			const padding = player.width;
 
-			for (var i = 0; i < enemies.length; i++){
-				enemies[i].update();
+			if (playerDeath){
+				const renderer = renderParticles();
+				if (renderer() == 0) playerDeath = false;
+			}
 
-				if (player.x < enemies[i].x + enemies[i].width){
-					if (player.x + player.width > enemies[i].x){
-						if (player.y < enemies[i].y + enemies[i].height){
-							if (player.y + player.height > enemies[i].y){
-								death();
+			if (gameStart){
+
+				for (var i = 0; i < enemies.length; i++){
+					enemies[i].update();
+
+					if (player.x < enemies[i].x + enemies[i].width){
+						if (player.x + player.width > enemies[i].x){
+							if (player.y < enemies[i].y + enemies[i].height){
+								if (player.y + player.height > enemies[i].y){
+									death();
+								}
 							}
 						}
 					}
 				}
-			}
 
-			if (player.x + padding >= canvas.width || player.x <= 0){
-				death();
-			}
-			if (player.y + padding >= canvas.height || player.y <= 0){
-				death();
-			}
+				if (player.x + padding >= canvas.width || player.x <= 0){
+					death();
+				}
+				if (player.y + padding >= canvas.height || player.y <= 0){
+					death();
+				}
 
-			player.update();
+				player.update();
+			}
 		}
 
 		if (gameStart && titleScreenOp > 0){
